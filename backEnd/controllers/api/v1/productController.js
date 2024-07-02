@@ -11,7 +11,7 @@ const Variant = require("../../../models/Variant");
 //const User = require("../../../models/User");
 
 exports.createProduct = async (req, res) => {
-  const uploadDir = path.join(__dirname, "/var/www/images");
+  const uploadDir = path.join(__dirname, "..", "public", "images");
 
   if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
