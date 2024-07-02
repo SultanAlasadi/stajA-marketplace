@@ -15,13 +15,19 @@ const orderRoute = require("./routes/orderRoute");
 const addressRoute = require("./routes/addressRoute");
 const paymentRoute = require("./routes/paymentRoute");
 const variantRoute = require("./routes/variantRoute");
-
+const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
 
 const app = express();
 app.use(express.static("public"));
 
 app.use(cors({ origin: "*" }));
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
 
 const port = 3000;
 try {
@@ -41,7 +47,7 @@ app.use(
   })
 );
 
-app.use(fileUpload());
+app.use(fileUpload({ useTempFiles: true }));
 
 //Routes
 

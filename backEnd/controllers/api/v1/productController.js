@@ -1,5 +1,6 @@
 const fs = require("fs");
-const { v4: uuidv4 } = require("uuid");
+//const { v4: uuidv4 } = require("uuid");
+const cloudinary = require("cloudinary").v2;
 //const faker = require("faker");
 //const mongoose = require("mongoose");
 const path = require("path");
@@ -9,9 +10,9 @@ const ProductReview = require("../../../models/ProductReview");
 const ProductDetails = require("../../../models/ProductDetails");
 const Variant = require("../../../models/Variant");
 //const User = require("../../../models/User");
-
+/*
 exports.createProduct = async (req, res) => {
-  const uploadDir = path.join('/data/images/');
+  const uploadDir = path.join(__dirname, "../../../public/images/");
 
   if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
@@ -118,7 +119,110 @@ exports.createProduct = async (req, res) => {
     });
   }
 };
+*/
+exports.createProduct = async (req, res) => {
+  try {
+    const imagePaths = [];
 
+    if (req.files && req.files.images) {
+      const files = Array.isArray(req.files.images)
+        ? req.files.images
+        : [req.files.images];
+
+      for (const file of files) {
+        const result = await cloudinary.uploader.upload(file.tempFilePath, {
+          use_filename: true,
+          folder: "lenslight_tr",
+        });
+        imagePaths.push(result.secure_url);
+      }
+    }
+
+    // Parse the variants field if it is a string
+    let variants = req.body.variants;
+    if (typeof variants === "string") {
+      variants = JSON.parse(variants);
+    }
+
+    let details = req.body.details;
+    if (typeof details === "string") {
+      details = JSON.parse(details);
+    }
+
+    const productData = {
+      ...req.body,
+      image: imagePaths.length ? imagePaths : undefined,
+      seller: req.userId,
+      variants,
+      details,
+    };
+
+    // Handling variants
+    if (variants && Array.isArray(variants)) {
+      const variantsData = [];
+
+      for (const variant of variants) {
+        const variantRecord = await Variant.findById(variant.category_id);
+        if (!variantRecord) {
+          return res.status(400).json({
+            status: "Fail",
+            message: `Variant with ID ${variant.category_id} does not exist.`,
+          });
+        }
+        const invalidValues = variant.values.filter(
+          (value) => !variantRecord.values.includes(value)
+        );
+        if (invalidValues.length > 0) {
+          return res.status(400).json({
+            status: "Fail",
+            message: `Values ${invalidValues.join(
+              ", "
+            )} do not exist in variant ${variantRecord.category}.`,
+          });
+        }
+        variantsData.push({
+          category_id: variant.category_id,
+          values: variant.values,
+        });
+      }
+
+      productData.variants = variantsData;
+    }
+
+    if (details && Array.isArray(details)) {
+      const detailsData = [];
+
+      for (const detail of details) {
+        const detailRecord = await ProductDetails.findById(detail.key);
+        if (!detailRecord) {
+          return res.status(400).json({
+            status: "Fail",
+            message: `Detail with ID ${detail.key} does not exist.`,
+          });
+        }
+        detailsData.push({
+          key: detail.key,
+          value: detail.value,
+        });
+      }
+
+      productData.details = detailsData;
+    }
+
+    const product = await Product.create(productData);
+
+    res.status(201).json({
+      status: "Product has been created successfully!",
+      product,
+    });
+  } catch (error) {
+    console.error("Error creating product:", error);
+    res.status(500).json({
+      status: "Fail",
+      error: error.message,
+    });
+  }
+};
 exports.getAllProducts = async (req, res) => {
   try {
     const page = req.query.page || 1;
