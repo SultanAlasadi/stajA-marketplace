@@ -124,9 +124,13 @@ const Login = () => {
               <p className="text-danger">{errors.password.message}</p>
             )}
             <input type="submit" className={classes.glass_button} />
+            {/*
             <Link to="/signup" className="text-center">
               Don't have an account? Sign up
             </Link>
+            */}
+            
+            
           </form>
         </div>
       </div>
