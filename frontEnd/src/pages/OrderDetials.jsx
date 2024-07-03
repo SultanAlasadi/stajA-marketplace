@@ -203,21 +203,21 @@ const OrderDetails = () => {
                     (
                       <div key={product._id} className="">
                         <div className="card mb-3">
-                          <div className="row g-0">
+                          <div className="row g-2">
                             <div className="col-md-4">
                               <Link to={`/products/${product.product_id.slug}`}>
                                 <img
-                                  src={`${url}${product.image[0]}`}
+                                  src={`${product.image[0]}`}
                                   className="img-fluid rounded-start"
                                   height={120}
-                                  width={100}
+                                  width={120}
                                   alt="Product Image"
                                 />
                               </Link>
                             </div>
-                            <div className="col-md-8">
+                            <div className="col-md-8 ">
                               <div className="card-body p-0">
-                                <p className="card-text position-relative">
+                                <p className="card-text position-relative mt-0">
                                   <b>Product name:</b> {product.product_id.name}
                                   <div className="position-absolute top-50">
                                     {errorCart && (

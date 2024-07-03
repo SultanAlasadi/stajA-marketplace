@@ -118,7 +118,7 @@ const WishList = () => {
                 productSlug={product.slug}
                 rating={product.averagerating}
                 name={product.name}
-                img={`${url}${product.image[0]}`}
+                img={`${product.image[0]}`}
                 price={product.price}
                 discount={product.discountedPrice}
               />

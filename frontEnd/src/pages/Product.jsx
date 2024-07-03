@@ -116,7 +116,7 @@ const Product = () => {
                 {product?.product.image.map((imageUrl, index) => (
                   <div key={index} className={classes.big_detail_img}>
                     <img
-                      src={`https://staja-marketplace.onrender.com${imageUrl}`}
+                      src={imageUrl}
                       alt="product"
                     />
                   </div>
@@ -132,7 +132,7 @@ const Product = () => {
                 {product?.product.image.map((imageUrl, index) => (
                   <div key={index} className={classes.small_detail_img}>
                     <img
-                      src={`https://staja-marketplace.onrender.com${imageUrl}`}
+                      src={imageUrl}
                       alt="product"
                     />
                   </div>
@@ -306,7 +306,7 @@ const Product = () => {
                   productSlug={product.slug}
                   name={product.name}
                   rating={product.averagerating}
-                  img={`${url}${product.image[0]}`}
+                  img={`${product.image[0]}`}
                   price={product.price}
                   discount={product.discount}
                 />{" "}
