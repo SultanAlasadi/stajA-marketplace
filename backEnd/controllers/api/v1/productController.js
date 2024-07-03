@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs').promises;
 //const { v4: uuidv4 } = require("uuid");
 const cloudinary = require("cloudinary").v2;
 //const faker = require("faker");
@@ -135,6 +135,10 @@ exports.createProduct = async (req, res) => {
           folder: "lenslight_tr",
         });
         imagePaths.push(result.secure_url);
+
+        await fs.unlink(file.tempFilePath);
+
+        
       }
     }
 
@@ -210,6 +214,8 @@ exports.createProduct = async (req, res) => {
     }
 
     const product = await Product.create(productData);
+
+    
 
     res.status(201).json({
       status: "Product has been created successfully!",
