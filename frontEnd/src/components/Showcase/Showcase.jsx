@@ -17,7 +17,7 @@ const Showcase = ({ products, Showtitle }) => {
             productSlug={product.slug}
             key={product._id}
             name={product.name}
-            img={`${url}${product.image[0]}`}
+            img={`${product.image[0]}`}
             price={product.price}
             discount={product.discountedPrice}
           />

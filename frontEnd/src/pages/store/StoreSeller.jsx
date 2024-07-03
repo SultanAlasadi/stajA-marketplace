@@ -100,7 +100,7 @@ const StoreSeller = () => {
                       productSlug={product.slug}
                       name={product.name}
                       rating={product.averageRating}
-                      img={`${url}${product.image[0]}`}
+                      img={`${product.image[0]}`}
                       price={product.price}
                       discount={product.discountedPrice}
                     />{" "}
@@ -152,7 +152,7 @@ const StoreSeller = () => {
                     <h5 className="text-center">Location</h5>
                     <h6>Istanbul</h6>
                   </div>
-                </div>{" "}
+                </div>
                 <div className="col-lg-5 d-flex gap-4 p-3 border border-1 rounded-3  align-items-center">
                   <span
                     style={{

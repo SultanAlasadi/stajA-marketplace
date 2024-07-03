@@ -63,7 +63,7 @@ const ProductsSeller = () => {
             <tr key={product._id}>
               <td>
                 <img
-                  src={`${url}${product.image[0]}`}
+                  src={`${product.image[0]}`}
                   alt={product.name}
                   style={{ width: "100px" }}
                 />
