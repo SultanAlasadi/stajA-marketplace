@@ -77,7 +77,8 @@ const Products = () => {
                     productSlug={product.slug}
                     name={product.name}
                     rating={product.averagerating}
-                    img={`${url}${product.image[0]}`}
+                   // img={`${url}${product.image[0]}`}
+                    img={product.image[0]}
                     price={product.price}
                     discount={product.discountedPrice}
                   />{" "}

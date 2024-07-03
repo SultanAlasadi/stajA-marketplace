@@ -16,7 +16,8 @@ const ShopCart = ({ CartProdcut, onRemoveClick }) => {
             >
               <div className={classes.cart_img_box}>
                 <img
-                  src={`${url}${product.image[0]}`}
+                  //src={`${url}${product.image[0]}`}
+                  src={product.image[0]}
                   alt={product.name}
                   className="rounded img-fluid"
                 />
