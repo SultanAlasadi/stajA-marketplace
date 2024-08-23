@@ -39,7 +39,7 @@ const UserProfile = () => {
   const fetchUserProfile = async () => {
     try {
       // setloadig(true);
-      const response = await axios.get(`${url}/userprofile`);
+      const response = await axios.get(`/userprofile`);
       setUserData(response.data.user);
       setShowAddress(response.data.user.addresses);
       console.log("response", response.data);
