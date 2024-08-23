@@ -8,6 +8,6 @@ const headers = {
   Authorization: userToken,
 };
 export default axios.create({
-  baseURL: "https://staja-marketplace-zjsp.onrender.com",
+  baseURL: "https://staja-marketplace.onrender.com",
   headers: headers,
 });
