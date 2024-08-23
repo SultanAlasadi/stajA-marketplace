@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "../api/axios";
 import Breadcrumbs from "../components/ui/Breadcrumb";
 import Pagination from "../components/ui/Pagination";
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -77,7 +77,7 @@ const Products = () => {
                     productSlug={product.slug}
                     name={product.name}
                     rating={product.averagerating}
-                   // img={`${url}${product.image[0]}`}
+                    // img={`${url}${product.image[0]}`}
                     img={product.image[0]}
                     price={product.price}
                     discount={product.discountedPrice}
