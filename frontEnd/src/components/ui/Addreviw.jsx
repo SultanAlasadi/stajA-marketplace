@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import RatingStarts from "./RatingStarts";
 import axios from "../../api/axios";
 
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 const Addreviw = ({ ratedId }) => {
   const [show, setShow] = useState(false);
   const [selectedRating, setSelectedRating] = useState(0);

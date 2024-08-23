@@ -50,7 +50,7 @@ const OrderDetails = () => {
     return <div>No order details available</div>;
   }
 
-  const url = "https://staja-marketplace.onrender.com";
+  const url = "https://staja-marketplace-zjsp.onrender.com";
 
   return (
     <div className="m-3">

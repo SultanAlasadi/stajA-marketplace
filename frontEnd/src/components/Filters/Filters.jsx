@@ -7,7 +7,7 @@ import { AiOutlineControl } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 import Col from "react-bootstrap/esm/Col";
 
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 
 const Filters = ({ onSelectedValuesChange }) => {
   const [variants, setVariants] = useState([]);

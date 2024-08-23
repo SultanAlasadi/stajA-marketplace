@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./userProfile.module.css";
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 import axios from "../../api/axios";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
@@ -33,7 +33,7 @@ const UserProfile = () => {
     signOut();
     redict("/login");
   };
-  const userImage = `https://staja-marketplace.onrender.com${userData?.image}`;
+  const userImage = `https://staja-marketplace-zjsp.onrender.com${userData?.image}`;
 
   const auth = useAuthUser();
   const fetchUserProfile = async () => {

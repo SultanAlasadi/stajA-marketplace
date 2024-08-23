@@ -1,7 +1,7 @@
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import classes from "./ShopCart.module.css";
 
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 const ShopCart = ({ CartProdcut, onRemoveClick }) => {
   const cartData = CartProdcut;
   console.log("cartData", cartData);

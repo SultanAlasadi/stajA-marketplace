@@ -39,9 +39,9 @@ const StoreSeller = () => {
   console.log("prossdssssssuct", review);
 
   const sellerimg = sellerData?.image
-    ? `https://staja-marketplace.onrender.com/${sellerData.image}`
+    ? `https://staja-marketplace-zjsp.onrender.com/${sellerData.image}`
     : "https://via.placeholder.com/150";
-  const url = "https://staja-marketplace.onrender.com";
+  const url = "https://staja-marketplace-zjsp.onrender.com";
   return (
     <div className="container-fluid">
       <div className="container mt-3 ">

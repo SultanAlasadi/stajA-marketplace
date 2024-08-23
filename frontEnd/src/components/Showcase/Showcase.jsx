@@ -1,6 +1,6 @@
 import classes from "./Showcase.module.css";
 import Card from "../Card/Card";
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 
 const Showcase = ({ products, Showtitle }) => {
   if (!products) {
