@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa"; // Import heart icon
 import classes from "./WishList.module.css";
 import { CircularProgress } from "@mui/material";
 
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -17,7 +17,7 @@ const WishList = () => {
   const fetchWishlist = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`${url}/favorite/get`);
+      const response = await axios.get(`/favorite/get`);
       setWishlist(response.data.favorite);
       setIsLoading(false);
     } catch (error) {
@@ -38,7 +38,7 @@ const WishList = () => {
       );
       setWishlist(newWishlist);
 
-      const response = await axios.post(`${url}/favorite/remove`, {
+      const response = await axios.post(`/favorite/remove`, {
         product_id: productId,
       });
 

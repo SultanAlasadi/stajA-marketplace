@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../api/axios";
 
-const url = "https://staja-marketplace.onrender.com";
+const url = "https://staja-marketplace-zjsp.onrender.com";
 const ProductsSeller = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

@@ -4,7 +4,7 @@ import axios from "../../api/axios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { Navigate, useNavigate } from "react-router-dom";
-const url = "https://staja-marketplace.onrender.com/users/signup";
+const url = "https://staja-marketplace-zjsp.onrender.com/users/signup";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
 import SignUpLogo from "../../../public/Group 4.svg";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
