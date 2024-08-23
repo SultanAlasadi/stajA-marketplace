@@ -19,9 +19,7 @@ function App() {
     const fetchFeaturedProducts = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          "https://staja-marketplace.onrender.com/products"
-        );
+        const response = await axios.get("/products");
         setFeaturedProducts(response.data.products);
         setIsLoading(false);
       } catch (error) {
@@ -30,7 +28,6 @@ function App() {
     };
     fetchFeaturedProducts();
   }, []);
-
 
   return (
     <>

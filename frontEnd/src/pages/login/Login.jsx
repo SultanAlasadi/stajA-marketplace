@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 import ModelSuccess from "../../components/ui/ModelSuccess";
 import SignUpLogo from "../../../public/Rectangle 20 (1).svg";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+import { Alert } from "@mui/material";
 
-const url = "https://staja-marketplace.onrender.com/users/login";
+const url = "https://staja-marketplace-zjsp.onrender.com/users/login";
 
 const Login = () => {
   const [errMsg, setErrMsg] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      email: "bashiralrayes6@gmail.com",
+      email: "username",
       password: "123asd1122",
     },
   });
@@ -93,6 +94,13 @@ const Login = () => {
           />
         </div>
         <div className="col-12 col-md-5">
+          <Alert severity="success" className="mb-4">
+            Customer username: customer1@gmail.com
+            <br className="py-4 d-inline-flex" />
+            Seller username: seller1@gmail.com
+            <br className="py-4 d-inline-flex" />
+            Password:123asd1122
+          </Alert>
           <h3>
             <span className={classes.textGradient}>Login to ShopCoo</span>
           </h3>
@@ -129,8 +137,6 @@ const Login = () => {
               Don't have an account? Sign up
             </Link>
             */}
-            
-            
           </form>
         </div>
       </div>

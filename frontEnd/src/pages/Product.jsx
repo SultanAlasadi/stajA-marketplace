@@ -30,7 +30,7 @@ const Product = () => {
   const [seller, setSeller] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [productDetails, setProductDetails] = useState({});
-  const url = "https://staja-marketplace.onrender.com";
+  const url = "https://staja-marketplace-zjsp.onrender.com";
 
   useEffect(() => {
     const fetchProductById = async () => {
@@ -115,10 +115,7 @@ const Product = () => {
               <Slider asNavFor={sliderRef2.current} ref={sliderRef1}>
                 {product?.product.image.map((imageUrl, index) => (
                   <div key={index} className={classes.big_detail_img}>
-                    <img
-                      src={imageUrl}
-                      alt="product"
-                    />
+                    <img src={imageUrl} alt="product" />
                   </div>
                 ))}
               </Slider>
@@ -131,10 +128,7 @@ const Product = () => {
               >
                 {product?.product.image.map((imageUrl, index) => (
                   <div key={index} className={classes.small_detail_img}>
-                    <img
-                      src={imageUrl}
-                      alt="product"
-                    />
+                    <img src={imageUrl} alt="product" />
                   </div>
                 ))}
               </Slider>
